@@ -2,7 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from request import Request
-
+import allure
+from selenium.webdriver.support.wait import WebDriverWait
+from allure_commons.types import AttachmentType
 
 class Application:
     def __init__(self):
@@ -30,6 +32,7 @@ class Application:
         wd.find_element(By.NAME, "message").send_keys(request.message)
         wd.find_element(By.CSS_SELECTOR, ".style_checkmark___GZe2").click()
 
+
     def open_feedback_page(self):
         wd = self.wd
         wd.get("https://www.pochtabank.ru/")
@@ -37,3 +40,9 @@ class Application:
 
     def destroy(self):
         self.wd.quit()
+
+
+    def screen_shot(self, name):
+        wait = WebDriverWait(self.wd, 50)
+        wait.until(lambda driver: driver.execute_script('return document.readyState') == 'complete')
+        allure.attach(self.wd.get_screenshot_as_png(), name=name, attachment_type=AttachmentType.PNG)
