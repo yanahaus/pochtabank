@@ -1,0 +1,1 @@
+[{"uid":"7dd1136e729e3e60","name":"Sending form","time":{"start":1667988471882,"stop":1667988492984,"duration":21102},"status":"passed","severity":"normal"},{"uid":"1d24591c1a27ec9a","name":"Отправка формы обратной связи","time":{"start":1667988496452,"stop":1667988532059,"duration":35607},"status":"broken","severity":"normal"}]
