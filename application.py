@@ -43,6 +43,6 @@ class Application:
 
 
     def screen_shot(self, name):
-        wait = WebDriverWait(self.wd, 50)
+        wait = WebDriverWait(self.wd, 5)
         wait.until(lambda driver: driver.execute_script('return document.readyState') == 'complete')
         allure.attach(self.wd.get_screenshot_as_png(), name=name, attachment_type=AttachmentType.PNG)
